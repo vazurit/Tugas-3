@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kalkulator Volume Balok</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card */
+.card {
+    width: 340px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    color: white;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: scale(0.9);}
+    to {opacity:1; transform: scale(1);}
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    background: linear-gradient(45deg, #00f260, #0575e6);
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Result */
+#hasil {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    animation: pop 0.5s ease;
+}
+
+@keyframes pop {
+    from {transform: scale(0.8);}
+    to {transform: scale(1);}
+}
+
+.footer {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>📦 Volume Balok</h2>
+
+    <input type="number" id="panjang" placeholder="Masukkan Panjang">
+    <input type="number" id="lebar" placeholder="Masukkan Lebar">
+    <input type="number" id="tinggi" placeholder="Masukkan Tinggi">
+
+    <button onclick="hitung()">Hitung Volume</button>
+
+    <div id="hasil"></div>
+
+    <div class="footer">Dibuat oleh: kelompok raja</div>
+</div>
+
+<script>
+function hitung() {
+    var p = document.getElementById("panjang").value;
+    var l = document.getElementById("lebar").value;
+    var t = document.getElementById("tinggi").value;
+
+    if(p === "" || l === "" || t === ""){
+        document.getElementById("hasil").innerHTML = "⚠️ Semua kolom harus diisi!";
+        return;
+    }
+
+    var volume = p * l * t;
+
+    document.getElementById("hasil").innerHTML =
+        "✅ Volume Balok = " + volume;
+}
+</script>
+
+</body>
+</html>
